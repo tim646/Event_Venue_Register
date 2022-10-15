@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+{% block content %}
+{% if user.is_authenticated %}
+<center>
+    <br>
+    <h1>Update Venue</h1>
+    <br>
+    <form style="max-width: 850px"  action="" method="POST">{% csrf_token %}
+    {{ form.as_p }}
+        <br>
+        <input type="submit" value="Update" class="btn btn-secondary">
+
+    </form>
+
+</center>
+
+{% else %}
+<h1>Ypu Must Be Logged In To View This page...</h1>
+<a href="{% url 'login' %}">Login Here</a>
+{% endif %}
+
+{% endblock %}
